@@ -13,6 +13,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "The Protein Cart",
   description: "Your trusted partner for authentic health supplements",
+  icons: {
+      icon: "/logo.png",
+      apple: [{ url: "/logo.png" }],
+    },
 };
 
 export default function RootLayout({

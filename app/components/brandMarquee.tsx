@@ -17,7 +17,7 @@ export default function HeroSection() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* HERO SECTION */}
-      <div className="relative w-full h-[50vh] min-h-[300px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100">
+      <div className="relative w-full h-[50vh] min-h-[300px] mt-8 sm:min-h-[380px] md:min-h-[420px] lg:min-h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100">
         {/* Background image */}
         <Image
           src="https://framerusercontent.com/images/NolpSKdxxdwOXCzjLds8o5o.jpg"

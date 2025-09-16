@@ -24,7 +24,7 @@ export default function HeroSection() {
   const [active, setActive] = useState("Proteins");
 
   return (
-    <section className="max-w-5xl mx-auto text-center py-20 px-4 sm:px-8 lg:px-16 bg-white">
+    <section className="max-w-5xl mx-auto text-center py-12 px-4 sm:px-8 lg:px-8 bg-white">
       {/* Heading */}
       <motion.h1
         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
@@ -41,22 +41,22 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8, ease: "linear" }}
-        className="text-2xl sm:text-3xl lg:text-5x1 font-[800] mb-6 text-black mt-18"
+        className="text-2xl sm:text-3xl lg:text-5x1 font-[800] mb-6 text-black "
       >
         CATEGORY
       </motion.h1>
 
-      <div className="mb-10">
+      {/* <div className="mb-10">
         <Link
           href="/trending"
           className="inline-block mt-4 text-sm sm:text-base font-medium bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
         >
           View All →
         </Link>
-      </div>
+      </div> */}
 
       {/* product button  */}
-      <div className="flex justify-start gap-0 sm:gap-3 flex-wrap mb-0">
+      <div className="flex justify-start gap-0 sm:gap-3 flex-wrap mb-4">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -70,6 +70,12 @@ export default function HeroSection() {
             {cat}
           </button>
         ))}
+        <Link
+          href="/trending"
+          className=" text-sm sm:text-base font-medium bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+        >
+          View All →
+        </Link>
       </div>
 
       {/* Product Images */}
@@ -83,8 +89,8 @@ export default function HeroSection() {
               <Image
                 src={product.img}
                 alt="Product Image"
-                width={410}
-                height={210}
+                width={600}
+                height={400}
                 className="object-contain w-[200px] h-[220px]"
               />
             </div>

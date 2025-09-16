@@ -5,6 +5,10 @@ import { FaFacebookF, FaInstagram, FaYoutube, FaTwitter } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-white text-black py-10 px-1 sm:px-12 text-sm">
+      <div className="w-full border-t-2 border-black pr-0 pl-0 mr-0 ml-0 mb-0" />
+      <div>
+        <img src="/logo.png" alt="The Protein Cart Logo" className="w-auto"/>
+      </div>
       {/* Main Grid */}
       <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
 
