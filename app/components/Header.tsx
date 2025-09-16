@@ -155,12 +155,12 @@ export default function Header() {
         aria-label="Main navigation"
       >
         {[
-          { name: "home", href: "/" },
-          { name: "about Us", href: "/about" },
-          { name: "brands", href: "/brands" },
-          { name: "nutrition", href: "/nutrition" },
-          { name: "combos", href: "/combos" },
-          { name: "contact", href: "/contact" },
+          { name: "Home", href: "/" },
+          { name: "About Us", href: "/about" },
+          { name: "Brands", href: "/brands" },
+          { name: "Nutrition", href: "/nutrition" },
+          { name: "Combos", href: "/combos" },
+          { name: "Contact Us", href: "/contact" },
         ].map((item) => (
           <Link
             key={item.name}
