@@ -1,61 +1,60 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import productsData from "@/public/jsonFiles/products.json"; // ✅ Import JSON directly
 
 interface Product {
   id: number;
   name: string;
-  brand: string;
+  category: string;
   image: string;
   price: number;
-  discountPrice: number;
 }
 
-export default function NutritionPage() {
+export default function ViewAllPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [brands, setBrands] = useState<string[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [search, setSearch] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [maxPrice, setMaxPrice] = useState<number>(5000);
   const [sortOption, setSortOption] = useState("default");
 
+  // ✅ Initialize data from imported JSON
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("/jsonFiles/products.json");
-        const data = await res.json();
-        setProducts(data);
-        setFilteredProducts(data);
+    setProducts(productsData);
+    setFilteredProducts(productsData);
 
-        const uniqueBrands = Array.from(new Set(data.map((p: Product) => p.brand))) as string[];
-        setBrands(uniqueBrands);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-    fetchProducts();
+    const uniqueCategories = Array.from(
+      new Set(productsData.map((p: Product) => p.category))
+    ) as string[];
+    setCategories(uniqueCategories);
   }, []);
 
+  // ✅ Apply filters & sorting
   useEffect(() => {
     let result = products;
 
+    // Search filter
     if (search.trim() !== "") {
       result = result.filter((p) =>
         p.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
-    if (selectedBrand !== "All") {
-      result = result.filter((p) => p.brand === selectedBrand);
+    // Category filter
+    if (selectedCategory !== "All") {
+      result = result.filter((p) => p.category === selectedCategory);
     }
 
-    result = result.filter((p) => p.discountPrice <= maxPrice);
+    // Price filter
+    result = result.filter((p) => p.price <= maxPrice);
 
+    // Sorting
     if (sortOption === "priceLowHigh") {
-      result = [...result].sort((a, b) => a.discountPrice - b.discountPrice);
+      result = [...result].sort((a, b) => a.price - b.price);
     } else if (sortOption === "priceHighLow") {
-      result = [...result].sort((a, b) => b.discountPrice - a.discountPrice);
+      result = [...result].sort((a, b) => b.price - a.price);
     } else if (sortOption === "az") {
       result = [...result].sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "za") {
@@ -63,21 +62,22 @@ export default function NutritionPage() {
     }
 
     setFilteredProducts(result);
-  }, [search, selectedBrand, maxPrice, sortOption, products]);
+  }, [search, selectedCategory, maxPrice, sortOption, products]);
 
   return (
     <div className="bg-white min-h-screen py-12 px-6 text-black">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Nutrition Products</h1>
+          <h1 className="text-4xl font-bold mb-4">All Products</h1>
           <p className="text-gray-700">
-            Choose from our wide range of authentic supplements and health
-            products
+            Browse through our collection of supplements and health essentials
           </p>
         </div>
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10 bg-gray-100 p-6 rounded-xl shadow">
+          {/* Search */}
           <input
             type="text"
             placeholder="Search products..."
@@ -86,19 +86,21 @@ export default function NutritionPage() {
             className="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           />
 
+          {/* Category */}
           <select
-            value={selectedBrand}
-            onChange={(e) => setSelectedBrand(e.target.value)}
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
             className="w-full md:w-1/4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           >
-            <option value="All">All Brands</option>
-            {brands.map((brand, idx) => (
-              <option key={idx} value={brand}>
-                {brand}
+            <option value="All">All Categories</option>
+            {categories.map((cat, idx) => (
+              <option key={idx} value={cat}>
+                {cat}
               </option>
             ))}
           </select>
 
+          {/* Price Range */}
           <div className="flex flex-col w-full md:w-1/4">
             <label htmlFor="price" className="text-gray-700 text-sm mb-2">
               Max Price: ₹{maxPrice}
@@ -115,6 +117,7 @@ export default function NutritionPage() {
             />
           </div>
 
+          {/* Sorting */}
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
@@ -142,14 +145,9 @@ export default function NutritionPage() {
                   className="w-full h-48 object-contain mb-4"
                 />
                 <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-                <p className="text-gray-600 mb-2">{product.brand}</p>
+                <p className="text-gray-600 mb-2">{product.category}</p>
                 <div className="mt-auto">
-                  <p className="text-lg font-bold mb-2">
-                    ₹{product.discountPrice}{" "}
-                    <span className="text-gray-500 line-through text-sm ml-2">
-                      ₹{product.price}
-                    </span>
-                  </p>
+                  <p className="text-lg font-bold mb-2">₹{product.price}</p>
                   <button className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
                     Add to Cart
                   </button>

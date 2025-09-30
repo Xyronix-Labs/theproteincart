@@ -1,0 +1,177 @@
+[
+    {
+        "id": 1,
+        "name": "KEVIN LEVORONE Anabolic ISO WHEY",
+        "price": 10,
+        "category": "KEVIN LEVORONE",
+        "image": "/proteinImg/KEVIN LEVORONE ANABOLIC ISO WHEY/1.png"
+    },
+    {
+        "id": 2,
+        "name": "KEVIN LEVORONE GOLD WHEY 2KG",
+        "price": 20,
+        "category": "KEVIN LEVORONE",
+        "image": "/proteinImg/KEVIN LEVORONE GOLD WHEY  2KG/1.jpg"
+    },
+    {
+        "id": 3,
+        "name": "KEVIN LEVORONE WHEY SUPREME",
+        "price": 30,
+        "category": "KEVIN LEVORONE",
+        "image": "/proteinImg/KEVIN LEVORONE WHEY SUPREME/1.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Muscelblaze Biozyme ISO-ZERO 1KG",
+        "price": 40,
+        "category": "Muscelblaze",
+        "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Muscelblaze Biozyme ISO-ZERO 2KG",
+        "price": 110,
+        "category": "Muscelblaze",
+        "image": "/proteinImg/MB BIOZYME ISO-ZERO 2KG/1.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Muscelblaze Biozyme Performance 1KG",
+        "price": 120,
+        "category": "Muscelblaze",
+        "image": "/proteinImg/MB BIOZYME PERFORMANCE 1 KG/1.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Muscelblaze Biozyme Performance 2KG",
+        "price": 320,
+        "category": "Muscelblaze",
+        "image": "/proteinImg/MB BIOZYME PERFORMANCE 2 KG/2KG/1.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Muscletech Nitrotech 4.4LB",
+        "price": 870,
+        "category": "Muscletech",
+        "image": "/proteinImg/MUSCLE TECH NITROTECH 4.4LB/1.JPG"
+    },
+    {
+        "id": 9,
+        "name": "Muscletech Nitrotech 4KG",
+        "price": 420,
+        "category": "Muscletech",
+        "image": "/proteinImg/MUSCLE TECH NITROTECH 4kg/1.JPG"
+    },
+    {
+        "id": 10,
+        "name": "Musceltech Nitrotech WHEY GOLD 2KG",
+        "price": 120,
+        "category": "Muscletech",
+        "image": "/proteinImg/MUSCLE TECH NITROTECH WHEY GOLD 2KG/1.jpg"
+    },
+    {
+        "id": 11,
+        "name": "GNC P.P WHEY 2KG",
+        "price": 980,
+        "category": "Proteins",
+        "image": "/proteinImg/GNC P.P WHEY 2KG/1.jpg"
+    },
+    {
+        "id": 12,
+        "name": "GNC P.P WHEY 4KG",
+        "price": 760,
+        "category": "Proteins",
+        "image": "/proteinImg/GNC P.P WHEY 4KG/1.jpg"
+    },
+    {
+        "id": 13,
+        "name": "GNC POWDER PROTEIN 1KG",
+        "price": 320,
+        "category": "Proteins",
+        "image": "/proteinImg/GNC POWER PROTEIN 1KG/1.jpg"
+    },
+    {
+        "id": 14,
+        "name": "ULTIMATE NUTRTION ISO SENSATION",
+        "price": 140,
+        "category": "Proteins",
+        "image": "/proteinImg/ULTIMATE NUTRITION ISO SENTATION/1.jpg"
+    },
+    {
+        "id": 15,
+        "name": "ULTIMATE NUTRTION PROSTAR",
+        "price": 740,
+        "category": "Proteins",
+        "image": "/proteinImg/ULTIMATE NUTRITION PROSTAR/1.jpg"
+    },
+    {
+        "id": 16,
+        "name": "MuscleBlaze Whey Gold 2KG",
+        "price": 890,
+        "category": "Proteins",
+        "image": "/proteinImg/MUSCLE BLAZE WHEY GOLD 2KG/1.jpg"
+    },
+    {
+        "id": 22,
+        "name": "OPTIMUM NUTRITION GOLD STANDARD 5LBS",
+        "price": 420,
+        "category": "Proteins",
+        "image": "/proteinImg/ON GOLD STANDARD 5LBS/1.jpg"
+    },
+    {
+        "id": 23,
+        "name": "OPTIMUM NUTRITION GOLD STANDARD 1KG",
+        "price": 890,
+        "category": "Proteins",
+        "image": "/proteinImg/ON GOLD STANDARD 1KG/1.jpg"
+    },
+    {
+        "id": 24,
+        "name": "GNC PURE ISOLATE 2KG",
+        "price": 990,
+        "category": "Proteins",
+        "image": "/proteinImg/GNC PURE ISOLATE 2KG/1.jpg"
+    },
+    {
+        "id": 25,
+        "name": "QNT PRIME WHEY 1KG",
+        "price": 80,
+        "category": "Proteins",
+        "image": "/proteinImg/QNT PRIME WHEY 1KG/1.jpg"
+    },
+    {
+        "id": 26,
+        "name": "QNT PRIME WHEY 2KG",
+        "price": 210,
+        "category": "Proteins",
+        "image": "/proteinImg/QNT PRIME WHEY 2KG/1.jpg"
+    },
+    {
+        "id": 27,
+        "name": "QNT PRIME WHEY 4KG",
+        "price": 110,
+        "category": "Proteins",
+        "image": "/proteinImg/QNT PRIME WHEY 4KG/1.jpg"
+    },
+    {
+        "id": 28,
+        "name": "QNT ISO RIPPED 1KG",
+        "price": 110,
+        "category": "Proteins",
+        "image": "/proteinImg/QNT ISO RIPPED 1KG/1.jpg"
+    },
+    {
+        "id": 29,
+        "name": "QNT ISO RIPPED 2KG",
+        "price": 550,
+        "category": "Proteins",
+        "image": "/proteinImg/QNT ISO RIPPED 2KG/1.jpg"
+    },
+    {
+        "id": 30,
+        "name": "BSN Syntha 6",
+        "price": 2210,
+        "category": "BSN Syntha 6",
+        "image": "/proteinImg/BSN SYNTHA 6/1.jpg"
+    }
+]

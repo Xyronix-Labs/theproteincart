@@ -67,17 +67,22 @@ export default function TrendingProducts() {
   return (
     <section className="relative w-full max-w-6xl mx-auto">
       {/* Header Row */}
-      <div className="flex justify-between items-center mb-8 px-4 sm:px-0">
-        <h2 className="text-3xl sm:text-4xl font-bold text-black">
+      <div className="relative mb-8 px-4 sm:px-0">
+        {/* Heading */}
+        <h2 className="text-3xl sm:text-4xl font-bold text-black text-center">
           TRENDING NOW
         </h2>
+
+        {/* View All Button */}
         <Link
           href="/trending"
-          className="text-sm sm:text-base font-medium bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition"
+          className="mt-3 sm:mt-0 sm:absolute sm:right-0 text-sm sm:text-base font-medium bg-white text-black px-4 py-2 rounded border-2 hover:bg-gray-200 transition"
         >
           View All →
         </Link>
       </div>
+
+
 
       {/* Scroll Buttons */}
       <button

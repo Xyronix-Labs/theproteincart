@@ -9,15 +9,11 @@ export default function CartPage() {
   const router = useRouter();
   const { cart, updateQty, removeFromCart } = useCart();
 
-  // ✅ useMemo to avoid recalculating every render
+  // ✅ useMemo to calculate totals
   const { total, shipping, grandTotal } = useMemo(() => {
     const t = cart.reduce((acc, item) => acc + item.price * item.qty, 0);
     const s = t > 2000 ? 0 : 99;
-    return {
-      total: t,
-      shipping: s,
-      grandTotal: t + s,
-    };
+    return { total: t, shipping: s, grandTotal: t + s };
   }, [cart]);
 
   return (
@@ -34,7 +30,6 @@ export default function CartPage() {
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
-              aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
@@ -51,7 +46,6 @@ export default function CartPage() {
         </div>
 
         {cart.length === 0 ? (
-          /* Empty Cart State */
           <div className="bg-white rounded-xl shadow-sm p-12 text-center">
             <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
               <svg
@@ -59,7 +53,6 @@ export default function CartPage() {
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
-                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
@@ -100,17 +93,14 @@ export default function CartPage() {
                     <li key={item.id} className="p-6">
                       <div className="flex items-center space-x-4">
                         {/* Product Image */}
-                        <div className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden">
-                          <div className="relative w-full h-full">
-                            <Image
-                              src={item.image || "/placeholder-product.jpg"}
-                              alt={item.name || "Product"}
-                              fill
-                              sizes="80px"
-                              className="object-cover"
-                              priority={false}
-                            />
-                          </div>
+                        <div className="flex-shrink-0 w-20 h-20 bg-gray-100 rounded-lg overflow-hidden relative">
+                          <Image
+                            src={item.image || "/placeholder-product.jpg"}
+                            alt={item.name || "Product"}
+                            fill
+                            sizes="80px"
+                            className="object-cover"
+                          />
                         </div>
 
                         {/* Product Details */}
@@ -119,8 +109,7 @@ export default function CartPage() {
                             {item.name}
                           </h3>
                           <p className="text-gray-600 mt-1">
-                            ₹
-                            {new Intl.NumberFormat("en-IN").format(item.price)}
+                            ₹{new Intl.NumberFormat("en-IN").format(item.price)}
                           </p>
 
                           {/* Quantity Controls */}
@@ -130,7 +119,7 @@ export default function CartPage() {
                                 onClick={() =>
                                   updateQty(item.id, Math.max(1, item.qty - 1))
                                 }
-                                className="px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                                className="px-3 py-2 text-gray-600 hover:text-gray-900"
                               >
                                 −
                               </button>
@@ -139,16 +128,14 @@ export default function CartPage() {
                               </span>
                               <button
                                 onClick={() => updateQty(item.id, item.qty + 1)}
-                                className="px-3 py-2 text-gray-600 hover:text-gray-900 transition-colors"
+                                className="px-3 py-2 text-gray-600 hover:text-gray-900"
                               >
                                 +
                               </button>
                             </div>
-
-                            {/* Remove Button */}
                             <button
                               onClick={() => removeFromCart(item.id)}
-                              className="text-red-600 hover:text-red-800 transition-colors text-sm font-medium"
+                              className="text-red-600 hover:text-red-800 text-sm font-medium"
                             >
                               Remove
                             </button>
@@ -207,8 +194,7 @@ export default function CartPage() {
                     <div className="flex justify-between text-lg font-semibold text-gray-900">
                       <span>Total</span>
                       <span>
-                        ₹
-                        {new Intl.NumberFormat("en-IN").format(grandTotal)}
+                        ₹{new Intl.NumberFormat("en-IN").format(grandTotal)}
                       </span>
                     </div>
                   </div>
@@ -221,53 +207,10 @@ export default function CartPage() {
                 <div className="mt-4 text-center">
                   <button
                     onClick={() => router.push("/")}
-                    className="text-blue-600 hover:text-blue-800 transition-colors font-medium"
+                    className="text-blue-600 hover:text-blue-800 font-medium"
                   >
                     Continue Shopping
                   </button>
-                </div>
-
-                {/* Security Badges */}
-                <div className="mt-6 pt-6 border-t border-gray-200">
-                  <div className="flex items-center justify-center space-x-6 text-gray-500">
-                    <div className="text-center">
-                      <svg
-                        className="w-8 h-8 mx-auto mb-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 
-                          00-2-2H6a2 2 0 00-2 2v6a2 2 0 
-                          002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                        />
-                      </svg>
-                      <span className="text-xs">Secure Payment</span>
-                    </div>
-                    <div className="text-center">
-                      <svg
-                        className="w-8 h-8 mx-auto mb-2"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 
-                          4m0-10L4 7m8 4v10M4 7v10l8 4"
-                        />
-                      </svg>
-                      <span className="text-xs">Free Shipping</span>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

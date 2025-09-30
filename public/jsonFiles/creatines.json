@@ -1,0 +1,100 @@
+[
+  {
+    "id": 1,
+    "name": "MuscleBlaze Biozyme Creatine Cream 100gm Flavour",
+    "price": 499,
+    "category": "Small",
+    "image": "/MUSCLE BLAZE/MB BIOZYME CREATINE CREAM (100 GM)/fl/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "MuscleBlaze Biozyme Creatine Cream 100gm Unflavour",
+    "price": 499,
+    "category": "Small",
+    "image": "/MUSCLE BLAZE/MB BIOZYME CREATINE CREAM (100 GM)/unfl/1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "MuscleBlaze Biozyme Creatine Cream 250gm Flavour",
+    "price": 899,
+    "category": "Medium",
+    "image": "/MUSCLE BLAZE/MB BIOZYME CREATINE CREAM (2500 GM)/fl/1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "MuscleBlaze Biozyme Creatine Cream 250gm Unflavour",
+    "price": 899,
+    "category": "Medium",
+    "image": "/MUSCLE BLAZE/MB BIOZYME CREATINE CREAM (2500 GM)/unfl/1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "MuscleTech Creatine 250gm",
+    "price": 1299,
+    "category": "Medium",
+    "image": "/MUSCLE TECH/MUSCLETECH CREATINE 250GM/1.jpg"
+  },
+  {
+    "id": 6,
+    "name": "GNC Creatine 100gm",
+    "price": 899,
+    "category": "Small",
+    "image": "CRATINE/GNC CREATINE/GNC CREATINE 100GM/1.jpg"
+  },
+  {
+    "id": 7,
+    "name": "GNC Creatine 250gm",
+    "price": 2999,
+    "category": "Big",
+    "image": "/GNC/GNC CREATINE 250GM/1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Doctor Choice Creatine 250gm",
+    "price": 1999,
+    "category": "Value Pack",
+    "image": "/DOCTOR CHOICE/DOCTOR CHOICE CREATINE 250GM/1.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Doctor Choice Creatine X5",
+    "price": 2499,
+    "category": "Medium",
+    "image": "/DOCTOR CHOICE/DOCTOR CHOICE CREATINE X5/1.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Optimum Nutrition Creatine 100g",
+    "price": 999,
+    "category": "Small",
+    "image": "/OPTIMUM NUTRITION/OPTIMUM NUTRITION CREATINE 100G/1.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Optimum Nutrition Creatine 250g",
+    "price": 2499,
+    "category": "Medium",
+    "image": "/OPTIMUM NUTRITION/OPTIMUM NUTRITION CREATINE 250G/1.jpg"
+  },
+  {
+    "id": 12,
+    "name": "Wellcore Creatine 100gm",
+    "price": 899,
+    "category": "Small",
+    "image": "/WELLCORE/WELLCORE CREATINE 100GM/1.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Wellcore Creatine 250gm",
+    "price": 1799,
+    "category": "Medium",
+    "image": "/WELLCORE/WELLCORE CREATINE 250GM/1.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Ronnie Coleman Cartnine 300mg",
+    "price": 1499,
+    "category": "Small",
+    "image": "/RONNIE COLEMAN/RONNIE COLEMAN CARTNINE 300MG/1.jpg"
+  }
+]

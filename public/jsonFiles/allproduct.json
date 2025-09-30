@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "name": "Protein Powder 500gm",
+        "price": 1999,
+        "categories": [
+            "Proteins",
+            "BestSeller"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 2,
+        "name": "Creatine Monohydrate 300gm",
+        "price": 1299,
+        "categories": [
+            "Creatine",
+            "Popular"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 3,
+        "name": "Pre-Workout Blast",
+        "price": 1499,
+        "categories": [
+            "Pre-Workout",
+            "Energy"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 4,
+        "name": "Mass Gainer 1kg",
+        "price": 2499,
+        "categories": [
+            "Gainers",
+            "HighCalorie"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 5,
+        "name": "Multivitamin Tablets",
+        "price": 699,
+        "categories": [
+            "Multivitamins",
+            "Wellness"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 6,
+        "name": "Natural Peanut Butter",
+        "price": 499,
+        "categories": [
+            "PeanutButter",
+            "HealthySnacks"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 7,
+        "name": "Fat Burner Capsules",
+        "price": 1599,
+        "categories": [
+            "FatBurner",
+            "WeightLoss"
+        ],
+        "image": "/category/MBgold.png"
+    },
+    {
+        "id": 8,
+        "name": "Fish Oil Softgels",
+        "price": 999,
+        "categories": [
+            "FishOil",
+            "Wellness"
+        ],
+        "image": "/category/MBgold.png"
+    }
+]

@@ -28,9 +28,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistMono.variable} antialiased`}>
         <CartProvider>
-          <Header />      {/* ✅ Always on top */}
+          <Header />
           <main>{children}</main>
-          <Footer />      {/* ✅ Always at bottom */}
+          <Footer />
         </CartProvider>
       </body>
     </html>

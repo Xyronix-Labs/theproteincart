@@ -156,11 +156,9 @@ export default function Header() {
       >
         {[
           { name: "Home", href: "/" },
-          { name: "About Us", href: "/about" },
           { name: "Brands", href: "/brands" },
           { name: "Nutrition", href: "/nutrition" },
           { name: "Combos", href: "/combos" },
-          { name: "Contact Us", href: "/contact" },
         ].map((item) => (
           <Link
             key={item.name}

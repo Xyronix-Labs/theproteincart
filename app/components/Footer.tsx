@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="ml-0 sm:ml-10">
           <h3 className="font-medium text-base mb-3">The Protein Cart</h3>
           <ul className="space-y-2">
-            <li><a href="#" className="hover:shadow-md hover:shadow-gray-500 transition text-xs">About Us</a></li>
+            <li><a href="/about" className="hover:shadow-md hover:shadow-gray-500 transition text-xs">About Us</a></li>
             <li><a href="#" className="hover:shadow-md hover:shadow-gray-500 transition text-xs">Authenticity Check</a></li>
             <li><a href="#" className="hover:shadow-md hover:shadow-gray-500 transition text-xs">Delivery</a></li>
             <li><a href="#" className="hover:shadow-md hover:shadow-gray-500 transition text-xs">Store Locator</a></li>

@@ -17,7 +17,7 @@ function ProductCard({
   onAddToCart,
 }: Product & { onAddToCart: (p: Product) => void }) {
   return (
-    <div className="w-full sm:w-[280px] md:w-[320px] h-[380px] md:h-[400px] rounded-xl shadow-md border flex flex-col items-center justify-center p-4 text-center bg-white hover:shadow-lg transition-shadow duration-300">
+    <div className="w-full sm:w-[280px] md:w-[320px] h-[380px] md:h-[400px] rounded-xl shadow-md border-1 border-black flex flex-col items-center justify-center p-4 text-center bg-red-100 hover:shadow-lg transition-shadow duration-300">
       <Image
         src={image}
         alt={title}
@@ -65,7 +65,7 @@ export default function TrendingPage({
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-black">
+      <h1 className="text-3xl sm:text-4xl font-bold text-center mb-12 text-white">
         {heading}
       </h1>
 

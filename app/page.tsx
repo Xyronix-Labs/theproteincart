@@ -18,7 +18,7 @@ export default function HomePage() {
       
       <HeroSection />
       <TrendingProducts />
-      <Brandmarque/>
+      {/* <Brandmarque/> */}
       <TopBrands />
       <ProteinFarm />
       <DealsSection />

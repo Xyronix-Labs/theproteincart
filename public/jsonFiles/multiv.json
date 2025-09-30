@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "name": "Muscletech Multivitamin",
+    "price": 1499,
+    "category": "Multivitamins",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "GNC MULTI DAILY 60 CAPSULES",
+    "price": 999,
+    "category": "Multivitamins",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "GNC COLLAGENE",
+    "price": 1299,
+    "category": "Health Supplements",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "GNC MILK THISTLE 60 CAPSULES",
+    "price": 1099,
+    "category": "Herbal",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 5,
+    "name": "GNC MILK THISTLE 90 CAPSULES",
+    "price": 1599,
+    "category": "Herbal",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 6,
+    "name": "GNC OMEGA (TRIPLE STRENGTH) 60 CAPSULES",
+    "price": 1999,
+    "category": "Omega-3",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 7,
+    "name": "GAT LARAGININE",
+    "price": 1799,
+    "category": "Performance",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "GAT MULTI TEST",
+    "price": 2099,
+    "category": "Performance",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 9,
+    "name": "GAT TESTO GOLD",
+    "price": 2299,
+    "category": "Performance",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 10,
+    "name": "GAT TRIBULUS",
+    "price": 1899,
+    "category": "Herbal",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  },
+  {
+    "id": 11,
+    "name": "GAT CAFFINE",
+    "price": 999,
+    "category": "Pre-Workout",
+    "image": "/proteinImg/MB BIOZYME ISO-ZERO 1KG/1.jpg"
+  }
+]

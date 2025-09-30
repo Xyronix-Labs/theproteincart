@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import productsData from "@/public/jsonFiles/products.json"; // ✅ Import JSON directly
 
 interface Product {
   id: number;
@@ -20,38 +21,37 @@ export default function BrandsPage() {
   const [maxPrice, setMaxPrice] = useState<number>(5000);
   const [sortOption, setSortOption] = useState("default");
 
+  // ✅ Load products from imported JSON
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const res = await fetch("/jsonFiles/products.json");
-        const data = await res.json();
-        setProducts(data);
-        setFilteredProducts(data);
+    setProducts(productsData);
+    setFilteredProducts(productsData);
 
-        const uniqueBrands = Array.from(new Set(data.map((p: Product) => p.brand))) as string[];
-        setBrands(uniqueBrands);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-    fetchProducts();
+    const uniqueBrands = Array.from(
+      new Set(productsData.map((p: Product) => p.brand))
+    ) as string[];
+    setBrands(uniqueBrands);
   }, []);
 
+  // ✅ Filtering & Sorting
   useEffect(() => {
     let result = products;
 
+    // Search filter
     if (search.trim() !== "") {
       result = result.filter((p) =>
         p.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
+    // Brand filter
     if (selectedBrand !== "All") {
       result = result.filter((p) => p.brand === selectedBrand);
     }
 
+    // Price filter
     result = result.filter((p) => p.discountPrice <= maxPrice);
 
+    // Sorting
     if (sortOption === "priceLowHigh") {
       result = [...result].sort((a, b) => a.discountPrice - b.discountPrice);
     } else if (sortOption === "priceHighLow") {
@@ -68,6 +68,7 @@ export default function BrandsPage() {
   return (
     <div className="bg-white min-h-screen py-12 px-6 text-black">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Brands</h1>
           <p className="text-gray-700">
@@ -77,6 +78,7 @@ export default function BrandsPage() {
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10 bg-gray-100 p-6 rounded-xl shadow">
+          {/* Search */}
           <input
             type="text"
             placeholder="Search by product..."
@@ -85,6 +87,7 @@ export default function BrandsPage() {
             className="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
           />
 
+          {/* Brand Filter */}
           <select
             value={selectedBrand}
             onChange={(e) => setSelectedBrand(e.target.value)}
@@ -98,6 +101,7 @@ export default function BrandsPage() {
             ))}
           </select>
 
+          {/* Price Filter */}
           <div className="flex flex-col w-full md:w-1/4">
             <label htmlFor="price" className="text-gray-700 text-sm mb-2">
               Max Price: ₹{maxPrice}
@@ -114,6 +118,7 @@ export default function BrandsPage() {
             />
           </div>
 
+          {/* Sorting */}
           <select
             value={sortOption}
             onChange={(e) => setSortOption(e.target.value)}
@@ -127,7 +132,7 @@ export default function BrandsPage() {
           </select>
         </div>
 
-        {/* Products by Brand */}
+        {/* Products */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product) => (
