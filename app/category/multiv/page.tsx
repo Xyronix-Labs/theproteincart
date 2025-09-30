@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import productsData from "@/public/jsonFiles/proteins.json"; // ✅ import JSON
 
 type Product = {
@@ -23,9 +24,6 @@ export default function EcommercePage() {
   const [search, setSearch] = useState("");
   const [price, setPrice] = useState(Math.max(...productsData.map((p) => p.price)));
   const [sortOption, setSortOption] = useState("default");
-
-  const minPrice = Math.min(...productsData.map((p) => p.price));
-  const maxPrice = Math.max(...productsData.map((p) => p.price));
 
   // Filtered products
   let filteredProducts = productsData.filter((p: Product) => {
@@ -81,7 +79,7 @@ export default function EcommercePage() {
           className="border rounded-lg px-4 py-2 w-full md:w-1/3"
         >
           {sortOptions.map((opt) => (
-            <option key={opt.value} value={opt.value}>
+            <option className="text-black" key={opt.value} value={opt.value}>
               {opt.label}
             </option>
           ))}
@@ -94,8 +92,8 @@ export default function EcommercePage() {
           </label>
           <input
             type="range"
-            min={minPrice}
-            max={maxPrice}
+            min={Math.min(...productsData.map((p) => p.price))}
+            max={Math.max(...productsData.map((p) => p.price))}
             value={price}
             onChange={(e) => setPrice(Number(e.target.value))}
             className="w-full cursor-pointer"
@@ -111,10 +109,13 @@ export default function EcommercePage() {
               key={product.id}
               className="border rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col"
             >
-              <img
+              <Image
                 src={product.image}
                 alt={product.name}
+                width={400}
+                height={160}
                 className="w-full h-40 object-contain mb-4"
+                priority={true}
               />
               <h2 className="font-semibold text-lg">{product.name}</h2>
               <p className="text-gray-600">{product.category}</p>

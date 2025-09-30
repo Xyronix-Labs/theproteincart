@@ -17,7 +17,7 @@ function ProductCard({
   onAddToCart,
 }: Product & { onAddToCart: (p: Product) => void }) {
   return (
-    <div className="w-full sm:w-[280px] md:w-[320px] h-[380px] md:h-[400px] rounded-xl shadow-md border-1 border-black flex flex-col items-center justify-center p-4 text-center bg-red-100 hover:shadow-lg transition-shadow duration-300">
+    <div className="w-full sm:w-[280px] md:w-[320px] h-[380px] md:h-[400px] rounded-xl shadow-md border-1 border-black flex flex-col items-center justify-center p-4 text-center bg-white hover:shadow-lg transition-shadow duration-300">
       <Image
         src={image}
         alt={title}
@@ -25,7 +25,7 @@ function ProductCard({
         height={160}
         className="object-contain"
       />
-      <h3 className="text-base font-semibold mt-3">{title}</h3>
+      <h3 className="text-base font-semibold mt-3 text-black">{title}</h3>
       <p className="text-gray-600 text-sm mt-1">₹{price}</p>
       <button
         onClick={() => onAddToCart({ title, price, image })}

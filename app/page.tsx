@@ -9,7 +9,7 @@ import BlogSection from "@/app/components/BlogSection";
 import TopPick from "./components/topPicks";
 import ProteinFarm from "./components/protienFarmExclusive";
 import WhyUs from "./components/whyUs";
-import Brandmarque from "./components/brandMarquee"
+// import Brandmarque from "./components/brandMarquee"
 
 
 export default function HomePage() {
