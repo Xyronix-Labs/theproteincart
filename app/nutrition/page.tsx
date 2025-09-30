@@ -1,165 +1,135 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import productsData from "@/public/jsonFiles/products.json"; // ✅ Import JSON directly
+import { useState } from "react";
+import Image from "next/image";
+import productsData from "@/public/jsonFiles/proteins.json"; // ✅ import JSON
 
-interface Product {
+type Product = {
   id: number;
   name: string;
+  price: number;
   category: string;
   image: string;
-  price: number;
-}
+};
 
-export default function ViewAllPage() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [search, setSearch] = useState("");
+const categories = ["All", "Muscletech", "Muscelblaze", "KEVIN LEVORONE", "BSN Syntha 6"];
+const sortOptions = [
+  { value: "default", label: "Sort By" },
+  { value: "lowHigh", label: "Price: Low → High" },
+  { value: "highLow", label: "Price: High → Low" },
+];
+
+export default function EcommercePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [maxPrice, setMaxPrice] = useState<number>(5000);
+  const [search, setSearch] = useState("");
+  const [price, setPrice] = useState(Math.max(...productsData.map((p) => p.price)));
   const [sortOption, setSortOption] = useState("default");
 
-  // ✅ Initialize data from imported JSON
-  useEffect(() => {
-    setProducts(productsData);
-    setFilteredProducts(productsData);
+  // Filtered products
+  let filteredProducts = productsData.filter((p: Product) => {
+    const matchCategory = selectedCategory === "All" || p.category === selectedCategory;
+    const matchSearch = p.name.toLowerCase().includes(search.toLowerCase());
+    const matchPrice = p.price <= price;
+    return matchCategory && matchSearch && matchPrice;
+  });
 
-    const uniqueCategories = Array.from(
-      new Set(productsData.map((p: Product) => p.category))
-    ) as string[];
-    setCategories(uniqueCategories);
-  }, []);
-
-  // ✅ Apply filters & sorting
-  useEffect(() => {
-    let result = products;
-
-    // Search filter
-    if (search.trim() !== "") {
-      result = result.filter((p) =>
-        p.name.toLowerCase().includes(search.toLowerCase())
-      );
-    }
-
-    // Category filter
-    if (selectedCategory !== "All") {
-      result = result.filter((p) => p.category === selectedCategory);
-    }
-
-    // Price filter
-    result = result.filter((p) => p.price <= maxPrice);
-
-    // Sorting
-    if (sortOption === "priceLowHigh") {
-      result = [...result].sort((a, b) => a.price - b.price);
-    } else if (sortOption === "priceHighLow") {
-      result = [...result].sort((a, b) => b.price - a.price);
-    } else if (sortOption === "az") {
-      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
-    } else if (sortOption === "za") {
-      result = [...result].sort((a, b) => b.name.localeCompare(a.name));
-    }
-
-    setFilteredProducts(result);
-  }, [search, selectedCategory, maxPrice, sortOption, products]);
+  // Apply sorting
+  if (sortOption === "lowHigh") {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.price - b.price);
+  } else if (sortOption === "highLow") {
+    filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
+  }
 
   return (
-    <div className="bg-white min-h-screen py-12 px-6 text-black">
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">All Products</h1>
-          <p className="text-gray-700">
-            Browse through our collection of supplements and health essentials
-          </p>
-        </div>
+    <div className="max-w-6xl mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-4">PROTEINS</h1>
 
-        {/* Filters */}
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 mb-10 bg-gray-100 p-6 rounded-xl shadow">
-          {/* Search */}
+      {/* Category Filters */}
+      <div className="flex gap-4 mb-6 flex-wrap">
+        {categories.map((cat) => (
+          <button
+            key={cat}
+            onClick={() => setSelectedCategory(cat)}
+            className={`px-4 py-2 rounded-lg border ${
+              selectedCategory === cat
+                ? "bg-blue-800 text-white"
+                : "bg-gray-100 text-black"
+            }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      {/* Search, Sort & Price Slider */}
+      <div className="flex flex-col md:flex-row gap-4 mb-6">
+        {/* Search */}
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="border rounded-lg px-4 py-2 w-full md:w-1/3"
+        />
+
+        {/* Sort */}
+        <select
+          value={sortOption}
+          onChange={(e) => setSortOption(e.target.value)}
+          className="border rounded-lg px-4 py-2 w-full md:w-1/3"
+        >
+          {sortOptions.map((opt) => (
+            <option className="text-black" key={opt.value} value={opt.value}>
+              {opt.label}
+            </option>
+          ))}
+        </select>
+
+        {/* Price Slider */}
+        <div className="w-full md:w-1/3">
+          <label className="block font-semibold mb-1">
+            Max Price: <span className="text-blue-600">₹{price}</span>
+          </label>
           <input
-            type="text"
-            placeholder="Search products..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="w-full md:w-1/3 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+            type="range"
+            min={Math.min(...productsData.map((p) => p.price))}
+            max={Math.max(...productsData.map((p) => p.price))}
+            value={price}
+            onChange={(e) => setPrice(Number(e.target.value))}
+            className="w-full cursor-pointer"
           />
-
-          {/* Category */}
-          <select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            className="w-full md:w-1/4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
-          >
-            <option value="All">All Categories</option>
-            {categories.map((cat, idx) => (
-              <option key={idx} value={cat}>
-                {cat}
-              </option>
-            ))}
-          </select>
-
-          {/* Price Range */}
-          <div className="flex flex-col w-full md:w-1/4">
-            <label htmlFor="price" className="text-gray-700 text-sm mb-2">
-              Max Price: ₹{maxPrice}
-            </label>
-            <input
-              type="range"
-              id="price"
-              min="500"
-              max="10000"
-              step="500"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(Number(e.target.value))}
-              className="cursor-pointer"
-            />
-          </div>
-
-          {/* Sorting */}
-          <select
-            value={sortOption}
-            onChange={(e) => setSortOption(e.target.value)}
-            className="w-full md:w-1/4 border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
-          >
-            <option value="default">Sort By</option>
-            <option value="priceLowHigh">Price: Low → High</option>
-            <option value="priceHighLow">Price: High → Low</option>
-            <option value="az">Name: A → Z</option>
-            <option value="za">Name: Z → A</option>
-          </select>
         </div>
+      </div>
 
-        {/* Products */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product) => (
-              <div
-                key={product.id}
-                className="bg-white border p-6 rounded-2xl shadow-md hover:shadow-xl transition text-left flex flex-col"
-              >
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="w-full h-48 object-contain mb-4"
-                />
-                <h2 className="text-xl font-semibold mb-2">{product.name}</h2>
-                <p className="text-gray-600 mb-2">{product.category}</p>
-                <div className="mt-auto">
-                  <p className="text-lg font-bold mb-2">₹{product.price}</p>
-                  <button className="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-                    Add to Cart
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-600 col-span-full">
-              No products found
-            </p>
-          )}
-        </div>
+      {/* Products Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {filteredProducts.length > 0 ? (
+          filteredProducts.map((product: Product) => (
+            <div
+              key={product.id}
+              className="border rounded-lg p-4 shadow hover:shadow-lg transition flex flex-col"
+            >
+              <Image
+                src={product.image}
+                alt={product.name}
+                width={400}
+                height={160}
+                className="w-full h-40 object-contain mb-4"
+                priority={true}
+              />
+              <h2 className="font-semibold text-lg">{product.name}</h2>
+              <p className="text-gray-600">{product.category}</p>
+              <p className="text-blue-600 font-bold mt-2">₹{product.price}</p>
+              <button className="mt-3 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+                Add to Cart
+              </button>
+            </div>
+          ))
+        ) : (
+          <p className="text-gray-500 mt-6 col-span-full text-center">
+            No products match your filters.
+          </p>
+        )}
       </div>
     </div>
   );
